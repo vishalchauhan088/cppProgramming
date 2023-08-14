@@ -83,6 +83,10 @@ class LinkedList{
         
         void count(){
             Node* current = head;
+            if(current == nullptr){
+                cout<<" !! No element in list"<<endl;
+            }
+            
             
             int count=0;
             do{
@@ -92,6 +96,18 @@ class LinkedList{
             
             cout<<"\n\ncount : "<<count<<endl;
             
+        }
+        
+        void clear(){
+            Node* temp;
+            Node* current = head;
+            do{
+                temp = current;
+                current = current -> next;
+                delete temp;
+            }while(current != head);
+            head = nullptr;
+            tail = nullptr;
         }
 
 };
@@ -106,6 +122,7 @@ int main(){
     list.display();
     list.insertAL(5000);
     list.display();
+    list.clear();
     list.count();
 
 }
