@@ -61,16 +61,18 @@ class Sort{
             }
         }
         
-        void insertionSort(int * arr, int n){
-           for(int i=1;i<n;i++){
-               int k = i;
-               while(arr[k]<arr[k-1] && k>=1){
-                   swap(&arr[k],&arr[k-1]);
-                   k--;
-                //   printArr(arr,n);
-               }
-           }
+       void insertionSort(int arr[], int n){
+        for(int i=1;i<n;i++){
+            int k = i-1;
+            int present = arr[i];
+            while(arr[k]>present && k>=0){
+                arr[k+1]=arr[k];
+                k--;
+            }
+            arr[k+1] = present;
         }
+    }
+
 };
 
 int main()
